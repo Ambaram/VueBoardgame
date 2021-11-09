@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script>
+    <link rel="stylesheet" type="text/css" href="/game.css" />
+    <title>Vue Boardgame</title>
+  </head>
+  <body>
+    <div id="app">
+      <div v-bind:class="loadClass">
+        <div v-for="n in 4">
+          <div v-for="m in 4">
+            <div v-on:click="flip()" v-bind:class="squareClass"></div>
+          </div>
+        </div>
+        <div v-bind:class="scoreClass">
+          <div v-bind:class="nav">Scoreboard</div>
+          <div v-bind:class="players">
+            <div v-bind:class="playerOne">
+              <div v-bind:class="name">Player One</div>
+              <div v-bind:class="score">96</div>
+            </div>
+            <div v-bind:class="playerTwo">
+              <div v-bind:class="name">Player Two</div>
+              <div v-bind:class="score">100</div>
+            </div>
+          </div>
+        </div>
+        <div id="roll">
+          <div v-bind:class="diceClass">
+            <img
+              v-bind:src="dice"
+              v-bind:style="dicestyle"
+              v-bind:alt="dicealt"
+              v-on:click="roll()"
+            />
+            <div>Click on dice to roll</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+  <script src="/game.js" type="text/javascript"></script>
+</html>
